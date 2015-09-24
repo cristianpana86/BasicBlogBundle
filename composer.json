@@ -1,0 +1,24 @@
+{
+    "name":        "cpana/basicblogbundle",
+    "type":        "symfony-bundle",
+    "description": "Symfony Basic Blog Bundle",
+    "keywords":    ["blog","symfony"],
+    "homepage":    "https://github.com/cristianpana86/BasicBlogBundle",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "Cristian Pana",
+            "email": "cristianpana86@yahoo.com",
+        }
+   ],
+   "require": {
+       "php": ">=5.5.0"
+    },
+    "minimum-stability": "dev",
+    "autoload" : {
+        "psr-4" : {
+            "CPANA\\BasicBlogBundle\\" : ""
+        }
+    },
+    "target-dir": "CPANA/BasicBlogBundle"
+}
