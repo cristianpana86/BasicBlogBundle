@@ -1,0 +1,12 @@
+# Form field labels
+form:
+    name: Name
+    email: Email
+    subject: Subject
+    body: Body
+    title: Title
+    author: Author
+    blog: Blog post content
+    user: Username
+    comment: Your comment
+    

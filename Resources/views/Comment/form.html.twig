@@ -1,0 +1,15 @@
+<form action="{{ path('CPANABasicBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post" {{ form_enctype(form) }} >
+    <div>
+		{{ form_errors(form) }}
+	</div>
+	<div>
+		{{ form_widget(form.user, { 'attr': {'class': 'form-control', 'placeholder': 'form.user'|trans({}, 'CPANABasicBlogBundle') } }) }}
+		{{ form_errors(form.user) }}
+	</div>				
+		{{ form_widget(form.comment, { 'attr': {'class': 'form-control', 'placeholder': 'form.comment'|trans({}, 'CPANABasicBlogBundle') } }) }}
+		{{ form_errors(form.comment) }}
+	</div>
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>

@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+
+{% block title %}Contact{% endblock%}
+
+{% block body %}
+
+<!-- container -->
+<div class="container">
+<div class="row">
+			
+	<!-- Article main content -->
+	<article class="col-sm-4 ">
+	
+    <header>
+        <h3>Do not hesitate to write me!</h3>
+		<p><a href="mailto:#">some.email@somewhere.com</a></p>
+    </header>
+	
+	{% for flashMessage in app.session.flashbag.get('blogger-notice') %}
+		<div class="blogger-notice">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+
+	{% trans_default_domain 'CPANABasicBlogBundle' %}
+	
+	<form action="{{ path('CPANABasicBlogBundle_contact') }}" method="post" {{ form_enctype(form) }} >
+	<div class="form-group" >
+        
+		{{ form_errors(form) }}
+	
+      
+		{{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'form.name'|trans({}, 'CPANABasicBlogBundle') } }) }}
+        {{ form_errors(form.name) }}
+		
+		
+        {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'form.email'|trans } }) }}
+        {{ form_errors(form.email) }}
+		
+		
+
+		{{ form_widget(form.subject, { 'attr': {'class': 'form-control', 'placeholder': 'form.subject'|trans } }) }}
+        {{ form_errors(form.subject) }}
+		
+		
+        {{ form_widget(form.body, { 'attr': {'class': 'form-control', 'placeholder': 'form.body'|trans } }) }}
+        {{ form_errors(form.body) }}
+		
+		
+        {{ form_rest(form) }}
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 text-right">
+				<input class="btn btn-action" type="submit" value="Submit" />
+			</div>
+		</div>
+    </form>
+	
+	</article>
+</div>
+</div>
+{% endblock %}

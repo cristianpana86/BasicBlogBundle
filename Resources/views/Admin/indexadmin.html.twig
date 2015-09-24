@@ -1,0 +1,44 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+{% block body %}
+	<!-- container -->
+<div class="container">
+	<div class="row">
+	<h2>Admin blog posts</h2>
+	<div>
+		<a class="btn btn-action" href="{{ path('CPANABasicBlogBundle_admin_add_post') }}">Add new article</a>
+		<a class="btn btn-action" href="{{ path('CPANABasicBlogBundle_admin_manage_comments') }}">Manage comments</a>
+		<hr>
+	</div>
+		<!-- Article main content -->
+		<article class="col-sm-8 maincontent">
+		<table>
+			
+		
+		{% for blog in blogs %}
+			<tr>
+				<td>				
+					<p><a href="{{ path('CPANABasicBlogBundle_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a></p>
+				</td>
+				<td>
+					<p><a href="{{ path('CPANABasicBlogBundle_admin_edit_post', { 'id': blog.id }) }}">Edit</a></p>
+				</td>
+				<td>
+					<p><a href="{{ path('CPANABasicBlogBundle_admin_delete_post', { 'id': blog.id }) }}">Delete</a></p>
+				</td>
+			</tr>
+			
+		{% else %}
+		<tr>
+			<p>There are no blog entries</p>
+		</tr>
+		{% endfor %}
+			
+			
+		</table>
+		</article>
+    
+	`		
+	</div>
+</div>	<!-- /container -->
+{% endblock %}
+

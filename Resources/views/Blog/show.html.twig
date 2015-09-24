@@ -1,0 +1,36 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+
+{% block title %}Downloads{% endblock%}
+
+{% block body %}
+
+<!-- container -->
+<div class="container">
+	<div class="row">
+		<!-- Article main content -->
+		<article class="col-sm-8 maincontent">
+		<header>
+            
+            <h2>{{ blog.title }}</h2>
+        </header>
+        <img src="{{ asset(['bundles/basicblogbundle/images/', blog.image]|join) }}" alt="{{ blog.title }} image not found"  />
+        <div>
+            <p>{{ blog.blog }}</p>
+        </div>
+		<div>
+		<hr>
+		<p><a href="{{ path('CPANABasicBlogBundle_comment_new',{ 'blog_id': blog.id })}}">Add comment<a></p>
+		<hr>
+			<section class="comments" id="comments">
+				<section class="previous-comments">
+					<h3>Comments</h3>
+					{% include 'CPANABasicBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+				</section>
+			</section>
+		</div>
+		</article>
+    
+	`		
+	</div>
+</div>	<!-- /container -->
+{% endblock %}

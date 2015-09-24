@@ -1,0 +1,13 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+
+{% block title %}About{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Confirmation</h1>
+    </header>
+    <article>
+        <p>Thank you writing us {{ app.request.query.get("name")}}</p>
+		
+    </article>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+
+{% block title %}Blog home{% endblock%}
+
+{% block body %}
+
+	{% for blog in blogs %}
+				
+		<h2 class="page-title"><a href="{{ path('CPANABasicBlogBundle_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
+		{% if blog.image%}
+			<img src="{{ asset(['bundles/basicblogbundle/images/', blog.image]|join) }}" alt="image not found"  />
+		{% endif %}
+		
+		<div>
+			<p>{{ blog.blog(500) }}</p>
+			<p><a href="{{ path('CPANABasicBlogBundle_blog_show', { 'id': blog.id }) }}">Continue reading...</a></p>
+		</div>
+	{% else %}
+		<p>There are no blog entries for symblog</p>
+	{% endfor %}
+	
+	{% if maxPages > 1 %}
+	<ul>
+		{%if thisPage > 1 %}
+		<li >
+				<a href="{{ path('CPANABasicBlogBundle_homepage', {currentPage: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+		</li>
+		{% endif %}
+		
+		{# Render each page number #}
+		{% for i in 1..maxPages %}
+		<li>
+			<a href="{{ path('CPANABasicBlogBundle_homepage', {currentPage: i}) }}">{{ i }}</a>
+		</li>
+		{% endfor %}
+
+		{# `»` arrow #}
+		{%if thisPage < maxPages %}
+		<li>
+			<a href="{{ path('CPANABasicBlogBundle_homepage', {currentPage: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+		</li>
+		{% endif %}
+	</ul>
+	{% endif %}
+
+{% endblock %}

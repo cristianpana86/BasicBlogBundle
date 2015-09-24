@@ -1,0 +1,4 @@
+services:
+#    cpana_basic_blog.example:
+#        class: CPANA\BasicBlogBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,20 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+
+{% block title %}Successfully posted{% endblock%}
+
+{% block body %}
+
+<!-- container -->
+<div class="container">
+	<div class="row">
+		<!-- Article main content -->
+		<article class="col-sm-8 maincontent">
+		
+		<p> You have successfully deleted the article with id: {{blog_id }} and title: {{ title}}</p>
+		<p><a href="{{ path('CPANABasicBlogBundle_admin_bloghome')}}">Go back to blog admin page</a></p>
+		
+		
+		</article>	
+	</div>
+</div>	<!-- /container -->
+{% endblock %}

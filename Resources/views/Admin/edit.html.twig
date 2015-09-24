@@ -1,0 +1,33 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+
+{% block title %}Edit post{% endblock%}
+
+{% block body %}
+
+	<p><a href="{{ path('CPANABasicBlogBundle_admin_bloghome') }}">Go to admin blog home page</a></p>
+	<form action="{{ path('CPANABasicBlogBundle_admin_edit_post',{'id': blog_id}) }}" method="post" {{ form_enctype(form) }} >
+		<div>
+			{{ form_errors(form) }}
+		</div>
+		<div>
+			{{ form_widget(form.title, { 'attr': {'placeholder': 'form.title'|trans({}, 'CPANABasicBlogBundle') } }) }}
+			{{ form_errors(form.title) }}
+		</div>
+		<div>		
+			{{ form_widget(form.author, { 'attr': {'placeholder': 'form.author'|trans({}, 'CPANABasicBlogBundle') } }) }}
+			{{ form_errors(form.author) }}
+		</div>	
+		<div>		
+			{{ form_widget(form.blog, { 'attr': {'placeholder': 'form.blog'|trans({}, 'CPANABasicBlogBundle') } }) }}
+			{{ form_errors(form.blog) }}
+		</div>						
+		<div>		
+			{{ form_rest(form) }}
+		</div>
+					
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+		
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'CPANABasicBlogBundle::layout.html.twig' %}
+{% block body %}
+	<!-- container -->
+<div class="container">
+	<div class="row">
+	<h2>Admin blog posts</h2>
+	<div>
+		<a href="{{ path('CPANABasicBlogBundle_admin_bloghome') }}">Go back to Admin Blog Home</a>
+		<hr>
+	</div>
+		<!-- Article main content -->
+		<article class="col-sm-8 maincontent">
+		<table border="1" cellpadding="10">
+			
+		
+		{% for comment in comments %}
+			<tr>
+				<td>				
+					<p> {{ comment.user  }}</p>
+				</td>
+				<td>				
+					<p> {{ comment.comment  }}</p>
+				</td>
+				<td>	
+					
+					<p> {{ comment.approved  }}</p>
+				</td>
+				<td>
+					{% if comment.approved == '1' %}
+						<p><a href="{{ path('CPANABasicBlogBundle_admin_unapprove_comment', { 'id': comment.id })}}">Unapprove</a></p>
+					{% else %}
+						<p><a href="{{ path('CPANABasicBlogBundle_admin_approve_comment', { 'id': comment.id })}}">Approve</a></p>
+					{% endif %}
+				</td>
+				<td>
+					<p><a href="{{ path('CPANABasicBlogBundle_admin_delete_comment', { 'id': comment.id })}}">Delete</a></p>
+				</td>
+			</tr>
+			
+		{% else %}
+		<tr>
+			<p>There are no comments to be managed</p>
+		</tr>
+		{% endfor %}
+			
+			
+		</table>
+		</article>
+    
+	`		
+	</div>
+</div>	<!-- /container -->
+{% endblock %}
+

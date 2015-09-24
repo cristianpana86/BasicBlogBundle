@@ -1,0 +1,98 @@
+CPANABasicBlogBundle_homepage:
+    pattern:  /blog/{currentPage}
+    defaults: { _controller: CPANABasicBlogBundle:Blog:blogHome, currentPage: 1 }
+    requirements:
+        _method:  GET
+        currentPage: \d+
+
+CPANABasicBlogBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: CPANABasicBlogBundle:Page:contact }
+    requirements:
+        _method:  GET|POST
+
+CPANABasicBlogBundle_confirmation:
+    pattern:  /confirmation
+    defaults: { _controller: CPANABasicBlogBundle:Page:confirmation }
+    requirements:
+        _method:  GET
+
+CPANABasicBlogBundle_blog_show:
+    pattern:  /blog/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+
+
+CPANABasicBlogBundle_comment_create:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: CPANABasicBlogBundle:Comment:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+
+
+CPANABasicBlogBundle_comment_new:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: CPANABasicBlogBundle:Comment:new }
+    requirements:
+        _method:  GET
+        blog_id: \d+
+
+CPANABasicBlogBundle_admin_bloghome:
+    pattern:  /admin/blog
+    defaults: { _controller: CPANABasicBlogBundle:Admin:indexAdmin }
+    requirements:
+        _method:  GET
+
+CPANABasicBlogBundle_admin_edit_post:
+    pattern:  /admin/blog/edit/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Admin:edit }
+    requirements:
+        _method:  GET|POST
+        blog_id: \d+
+
+CPANABasicBlogBundle_admin_delete_post:
+    pattern:  /admin/blog/delete/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Admin:delete }
+    requirements:
+        _method:  GET
+        blog_id: \d+
+
+CPANABasicBlogBundle_admin_add_post:
+    pattern:  /admin/blog/add
+    defaults: { _controller: CPANABasicBlogBundle:Admin:add }
+    requirements:
+        _method:  GET|POST
+
+CPANABasicBlogBundle_admin_add_success:
+    pattern:  /admin/blog/addsuccess
+    defaults: { _controller: CPANABasicBlogBundle:Admin:addSuccess }
+    requirements:
+        _method:  GET
+
+CPANABasicBlogBundle_admin_manage_comments:
+    pattern:  /admin/blog/comments
+    defaults: { _controller: CPANABasicBlogBundle:Admin:comments }
+    requirements:
+        _method:  GET
+
+CPANABasicBlogBundle_admin_delete_comment:
+    pattern:  /admin/comments/delete/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Admin:deleteComment }
+    requirements:
+        _method:  GET
+        id: \d+
+
+CPANABasicBlogBundle_admin_approve_comment:
+    pattern:  /admin/comments/approve/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Admin:approveComment }
+    requirements:
+        _method:  GET
+        id: \d+
+
+CPANABasicBlogBundle_admin_unapprove_comment:
+    pattern:  /admin/comments/unapprove/{id}
+    defaults: { _controller: CPANABasicBlogBundle:Admin:unapproveComment }
+    requirements:
+        _method:  GET
+        id: \d+
