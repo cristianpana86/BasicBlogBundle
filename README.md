@@ -14,4 +14,26 @@ Admin
 
 #Installation
 
+Install using Composer:
+
+	composer require cpana/basicblogbundle
+
+Register the bundle in AppKernel.php by adding:
+
+	new CPANA\BasicBlogBundle\CPANABasicBlogBundle(),
+
+Import paths in app/config/routing.yml by adding:
+
+    CPANABasicBlogBundle:
+    resource: "@CPANABasicBlogBundle/Resources/config/routing.yml"
+
+Make sure to have configured your database in app/config/parameters.yml
+Generate you schema using console:
+
+	php app/console cache:clear
+	php app/console doctrine:schema:update --force
+
 #Usage
+
+Go to your browser "<your website>/web/app_dev.php/admin/blog"
+Add a blog post and then go to "<your website>/web/app_dev.php/blog" to see the results.
