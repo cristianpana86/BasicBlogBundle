@@ -14,29 +14,7 @@ use Symfony\Component\Form\Form;
  */
 class CommentController extends Controller
 {
-    /**
-     * Add a new comment - show new comment form
-     *
-     * @param string $blog_id - $id of the article to which the comment will be added
-     *
-     * @return object Response
-     */
-    public function newAction($blog_id)
-    {
-        $blog = $this->getBlog($blog_id);
-
-        $comment = new Comment();
-        $comment->setBlog($blog);
-        $form   = $this->createForm(new CommentType(), $comment);
-
-        return $this->render(
-            'CPANABasicBlogBundle:Comment:form.html.twig', array(
-            'comment' => $comment,
-            'form'   => $form->createView()
-            )
-        );
-    }
-
+    
     /**
      * Post the new comment and persist it on Database
      *
@@ -51,23 +29,26 @@ class CommentController extends Controller
 
         $comment  = new Comment();
         $comment->setBlog($blog);
-        $request = $this->getRequest();
-        $form    = $this->createForm(new CommentType(), $comment);
-        $form->bind($request);
+        		
+        $form = $this->createForm(new CommentType(), $comment);
+		
+		if ($request->getMethod() == 'POST') {
+		
+            $form->bind($request);
         
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
 
-            return $this->redirect(
-                $this->generateUrl(
-                    'CPANABasicBlogBundle_blog_show', array(
-                    'id' => $comment->getBlog()->getId())
-                )
-            );
+                return $this->redirect(
+                    $this->generateUrl(
+                       'CPANABasicBlogBundle_blog_show', array(
+                       'id' => $comment->getBlog()->getId())
+                    )
+                );
+            }
         }
-
         return $this->render(
             'CPANABasicBlogBundle:Comment:form.html.twig', array(
             'comment' => $comment,

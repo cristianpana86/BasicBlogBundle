@@ -18,7 +18,7 @@ CPANABasicBlogBundle_confirmation:
         _method:  GET
 
 CPANABasicBlogBundle_blog_show:
-    pattern:  /blog/{id}
+    pattern:  /blog/post/{id}
     defaults: { _controller: CPANABasicBlogBundle:Blog:show }
     requirements:
         _method:  GET
@@ -28,14 +28,7 @@ CPANABasicBlogBundle_comment_create:
     pattern:  /comment/{blog_id}
     defaults: { _controller: CPANABasicBlogBundle:Comment:create }
     requirements:
-        _method:  POST
-        blog_id: \d+
-
-CPANABasicBlogBundle_comment_new:
-    pattern:  /comment/{blog_id}
-    defaults: { _controller: CPANABasicBlogBundle:Comment:new }
-    requirements:
-        _method:  GET
+        _method:  GET|POST
         blog_id: \d+
 
 CPANABasicBlogBundle_admin_bloghome:
