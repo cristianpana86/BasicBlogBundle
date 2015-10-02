@@ -1,6 +1,6 @@
 #BasicBlogBundle
 
-This bundle is indented for projects who need some basic blog features. Please see below of the features already included:
+This bundle is indented for projects who need some basic blog features. Please see below a list of features already included:
 
 Front side
 - view all blog posts with pagination
