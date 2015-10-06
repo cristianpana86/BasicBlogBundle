@@ -35,5 +35,5 @@ Generate you schema using console:
 
 #Usage
 
-Go to your browser "<your website>/web/app_dev.php/admin/blog"
-Add a blog post and then go to "<your website>/web/app_dev.php/blog" to see the results.
+Go to browser and navigate to "your website/app_dev.php/admin/blog"
+Add a blog post and then go to "your website/app_dev.php/blog" to see the results.
