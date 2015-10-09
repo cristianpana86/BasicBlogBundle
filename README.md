@@ -16,7 +16,7 @@ Admin
 
 Install using Composer:
 
-	composer require cpana/basicblogbundle
+	composer require cpana/basicblogbundle:dev-master
 
 Register the bundle in AppKernel.php by adding:
 
